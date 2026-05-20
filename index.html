@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>南加州公立高中十年级 Math IIIA / Math IIIB 学习指南</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Integrated Math III · Southern California Public High Schools</p>
+        <h1>南加州公立高中十年级 Math IIIA / Math IIIB 学习指南</h1>
+        <p class="subtitle">面向十年级学生与家长：用中文梳理 Math III 的核心概念，保留常见英文数学词汇，兼顾课堂预习、练习、复习和升入 Precalculus / AP Statistics / AP Calculus 的准备。</p>
+      </div>
+      <aside class="hero-note" aria-label="页面使用说明">
+        <strong>怎么使用这页</strong>
+        <span>先看课程简介，再按 Math IIIA 与 Math IIIB 主题逐个练习。搜索框可输入 polynomial、logarithm、unit circle 等关键词；打印时答案会自动显示。</span>
+        <div class="tag-row" style="margin-top: 14px;">
+          <span class="tag">保存日期：2026-05-20</span>
+          <span class="tag">最后更新时间：2026-05-20</span>
+          <span class="tag">适用于南加州公立高中十年级</span>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <nav class="toolbar" aria-label="页面导航和搜索">
+    <div class="wrap toolbar-inner">
+      <label class="search-box">
+        <span class="search-icon">⌕</span>
+        <input id="searchInput" type="search" placeholder="搜索关键词：polynomial、logarithm、unit circle、normal distribution..." aria-label="搜索学习主题">
+      </label>
+      <div class="nav-links">
+        <a href="#intro">课程简介</a>
+        <a href="#examCenter">模拟考试</a>
+        <a href="#studyStats">学习统计</a>
+        <a href="#wrongbook">错题本</a>
+        <a href="#iiia">Math IIIA</a>
+        <a href="#iiib">Math IIIB</a>
+        <a href="#formulas">公式表</a>
+        <a href="#advice">学习建议</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <section id="intro">
+      <div class="section-title">
+        <h2>一、课程简介</h2>
+        <span class="section-kicker">Integrated Math Pathway 第三阶段</span>
+      </div>
+      <div class="intro-grid">
+        <article class="card">
+          <h3>Math III 学什么？</h3>
+          <p>Integrated Math III 是 Integrated Math 路径中的第三阶段，通常延续 Math I 与 Math II 的 algebra、geometry、functions、statistics 与 modeling。它不只是“Algebra II 换名字”，而是把函数、方程、图像、三角、数据分析和真实情境建模放在同一条学习线上。</p>
+          <p>在南加州与加州公立高中中，不同学区可能把一学年拆成 Math IIIA 和 Math IIIB。常见安排是：IIIA 更集中在 function families 与代数结构；IIIB 更集中在 trigonometry、unit circle、statistics、normal distribution 与 introductory inference。</p>
+        </article>
+        <article class="card">
+          <h3>为什么重要？</h3>
+          <p>Math III 的目标是让学生能熟练分析函数特征、解释参数意义、建立模型、解方程，并能用统计语言描述不确定性。它直接连接后续课程：Precalculus 需要扎实的 functions 与 trigonometry；AP Statistics 需要数据、模拟和推断思维；AP Calculus 则要求学生对图像、变化率和函数行为有稳定直觉。</p>
+          <p>本页参考 California Mathematics Framework 中 Mathematics III 的课程方向，以及 IUSD 对 Integrated Math Pathway 的说明：综合路径会在每一年整合 algebra、geometry、trigonometry 和 statistics。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="practice-panel" id="daily">
+      <h2>今日练习</h2>
+      <p>点击按钮，从 Math IIIA / IIIB 的练习题中随机抽一道。适合每天 5 分钟热身。</p>
+      <div class="today-question" id="todayQuestion">点击“随机抽题”开始。</div>
+      <div class="action-row">
+        <button class="btn primary" id="randomBtn" type="button">随机抽题</button>
+        <button class="btn ghost" id="todayAnswerBtn" type="button" hidden>显示答案</button>
+      </div>
+      <div class="answer" id="todayAnswer"></div>
+    </section>
+
+    <section class="exam-platform" id="examCenter">
+      <div class="section-title">
+        <h2>Math IIIA / Math IIIB 十套模拟考试卷</h2>
+        <span class="section-kicker">10 Tests · 45 Minutes Each</span>
+      </div>
+
+      <div class="dashboard-grid" id="examDashboard">
+        <article class="metric-card"><span>正确率</span><strong id="metricAccuracy">0%</strong></article>
+        <article class="metric-card"><span>已完成试卷</span><strong id="metricCompleted">0</strong></article>
+        <article class="metric-card"><span>最弱知识点</span><strong id="metricWeakest">-</strong></article>
+        <article class="metric-card"><span>错题本</span><strong id="metricWrongbook">0</strong></article>
+      </div>
+
+      <div class="view-tabs" aria-label="学习平台页面">
+        <button class="btn active" type="button" data-view-btn="dashboardView">首页 dashboard</button>
+        <button class="btn" type="button" data-view-btn="testsView">试卷导航菜单</button>
+        <button class="btn" type="button" data-view-btn="statsView">学习统计页面</button>
+        <button class="btn" type="button" data-view-btn="wrongbookView">错题本页面</button>
+      </div>
+
+      <div class="study-view active" id="dashboardView">
+        <div class="intro-grid">
+          <article class="card">
+            <h3>今日推荐练习</h3>
+            <p id="recommendedPractice">系统会根据错题本自动推荐最需要补的知识点；如果还没有记录，会从综合题中随机推荐。</p>
+            <div class="action-row">
+              <button class="btn primary" type="button" id="jumpRecommendedBtn">开始推荐练习</button>
+            </div>
+          </article>
+          <article class="card">
+            <h3>家长查看成绩</h3>
+            <p id="parentSummary">还没有提交过试卷。完成 Part A 选择题后，这里会显示最近成绩、累计正确率和需要关注的知识点。</p>
+          </article>
+        </div>
+        <article class="card" style="margin-top: 14px;">
+          <h3>随机生成一套练习卷</h3>
+          <p>每次打开或刷新页面，系统会从 10 套模拟卷中抽题组成一套混合练习。适合周末复习或考前快速诊断。</p>
+          <div id="randomPracticeSet" class="wrongbook-list"></div>
+        </article>
+      </div>
+
+      <div class="study-view" id="testsView">
+        <div class="exam-tabs" id="examTabs" aria-label="十套模拟考试导航"></div>
+        <div class="exam-layout">
+          <aside class="exam-side">
+            <h3 id="sideExamTitle">Test 1</h3>
+            <div class="timer" id="examTimer">45:00</div>
+            <p>建议独立完成。Part A 自动批改；Part B、C、D 可先写步骤，再展开解析自评。</p>
+            <div class="action-row">
+              <button class="btn primary" type="button" id="startExamBtn">开始考试</button>
+              <button class="btn" type="button" id="submitExamBtn">提交试卷</button>
+              <button class="btn ghost" type="button" id="printExamBtn">打印试卷</button>
+            </div>
+            <div class="score-banner" id="scoreBanner"></div>
+          </aside>
+          <div class="exam-stage" id="examStage"></div>
+        </div>
+      </div>
+
+      <div class="study-view" id="statsView">
+        <div class="stat-grid">
+          <article class="card">
+            <h3>学习统计</h3>
+            <p id="statsSummary">暂无统计。提交至少一套试卷后会显示正确率、完成数量和最弱知识点。</p>
+            <div class="action-row">
+              <button class="btn ghost" type="button" id="clearStatsBtn">清空学习统计</button>
+            </div>
+          </article>
+          <article class="card" id="historyPanel">
+            <h3>成绩记录</h3>
+            <div id="scoreHistory" class="wrongbook-list"></div>
+          </article>
+        </div>
+      </div>
+
+      <div class="study-view" id="wrongbookView">
+        <article class="card">
+          <h3>错题本</h3>
+          <p>提交试卷后，Part A 做错的选择题会自动进入错题本，并保存到本机浏览器 localStorage。</p>
+          <div class="action-row">
+            <button class="btn ghost" type="button" id="clearWrongbookBtn">清空错题本</button>
+          </div>
+          <div id="wrongbookList" class="wrongbook-list"></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="iiia">
+      <div class="section-title">
+        <h2>二、Math IIIA 主要内容</h2>
+        <span class="section-kicker">Functions · Algebra · Modeling</span>
+      </div>
+      <div class="topic-grid" id="iiiaTopics"></div>
+    </section>
+
+    <section id="iiib">
+      <div class="section-title">
+        <h2>三、Math IIIB 主要内容</h2>
+        <span class="section-kicker">Trigonometry · Statistics · Inference</span>
+      </div>
+      <div class="topic-grid" id="iiibTopics"></div>
+    </section>
+
+    <div class="no-results" id="noResults">没有找到匹配内容。试试英文关键词，例如 exponential、inverse、radian、normal distribution。</div>
+
+    <section id="formulas">
+      <div class="section-title">
+        <h2>四、重点公式速查表</h2>
+        <span class="section-kicker">Quick Reference</span>
+      </div>
+      <div class="formula-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>主题</th>
+              <th>核心形式 / 公式</th>
+              <th>学习提醒</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>polynomial</td>
+              <td><span class="math">f(x)=a_nx^n+...+a_1x+a_0</span>；zeros、factors、end behavior</td>
+              <td>次数 degree 决定整体形状；leading coefficient 影响左右端行为。</td>
+            </tr>
+            <tr>
+              <td>exponential</td>
+              <td><span class="math">y=a·b^x</span>，<span class="math">b&gt;0, b≠1</span>；growth / decay</td>
+              <td><span class="math">b&gt;1</span> 是增长，<span class="math">0&lt;b&lt;1</span> 是衰减；注意 initial value。</td>
+            </tr>
+            <tr>
+              <td>logarithm</td>
+              <td><span class="math">log_b(x)=y ⇔ b^y=x</span>；<span class="math">log_b(MN)=log_bM+log_bN</span></td>
+              <td>logarithm 是 exponential 的 inverse；真数 argument 必须大于 0。</td>
+            </tr>
+            <tr>
+              <td>sine/cosine</td>
+              <td><span class="math">y=A sin(B(x-C))+D</span>；period <span class="math">=2π/|B|</span></td>
+              <td>A 是 amplitude，C 是 phase shift，D 是 midline。</td>
+            </tr>
+            <tr>
+              <td>unit circle</td>
+              <td>点坐标 <span class="math">(cos θ, sin θ)</span>；<span class="math">sin²θ+cos²θ=1</span></td>
+              <td>先记特殊角 0, π/6, π/4, π/3, π/2，再用象限判断正负号。</td>
+            </tr>
+            <tr>
+              <td>normal distribution</td>
+              <td><span class="math">z=(x-μ)/σ</span>；68-95-99.7 Rule</td>
+              <td>z-score 表示离平均数多少个 standard deviations；图像面积表示概率。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="advice">
+      <div class="section-title">
+        <h2>五、十年级学生学习建议</h2>
+        <span class="section-kicker">Study Habits</span>
+      </div>
+      <div class="advice-grid">
+        <article class="card">
+          <h3>每周学习安排</h3>
+          <p>建议每周至少安排 4 次短时段学习：2 次跟进作业，1 次整理错题，1 次预习或补弱项。每次 35 到 50 分钟即可，重点是稳定节奏。遇到测试周，把公式表、错题和课堂 quiz 放在一起复盘。</p>
+        </article>
+        <article class="card">
+          <h3>如何预习</h3>
+          <p>预习时不要追求全会。先看本节 vocabulary，例如 asymptote、period、inverse、z-score；再试着画 parent function 或 unit circle。上课时把老师强调的限制条件、图像特征和解题步骤补进去。</p>
+        </article>
+        <article class="card">
+          <h3>如何做错题本</h3>
+          <p>错题本不用抄整页。每题记录四件事：题型、错因、正确关键步骤、下次提醒。比如“log equation 忘了检查 extraneous solution”比“我不会 log”更有价值。</p>
+        </article>
+        <article class="card">
+          <h3>如何为 Precalculus / AP Statistics 做准备</h3>
+          <p>想走 Precalculus 或 AP Calculus，重点练函数图像、transformations、trigonometric functions 和 equation solving。想走 AP Statistics，重点练 distribution、sampling、simulation、normal model 和用一句话解释结果。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="sources">
+      <div class="section-title">
+        <h2>参考方向</h2>
+        <span class="section-kicker">California / IUSD</span>
+      </div>
+      <article class="card">
+        <p>本页是学习指南，不替代具体学校 syllabus。不同老师可能会调整章节顺序、深度和考试要求。</p>
+        <ul class="source-list">
+          <li><a href="https://www.cde.ca.gov/ci/ma/cf/documents/mathfwmathematics3jl.pdf" target="_blank" rel="noopener">California Mathematics Framework: Mathematics III chapter</a></li>
+          <li><a href="https://iusd.org/student_resources/mathematics.html" target="_blank" rel="noopener">IUSD Mathematics: Integrated Math Pathway 说明</a></li>
+          <li><a href="https://iusd.org/sites/default/files/math_pathways_final_graphic_0.pdf" target="_blank" rel="noopener">IUSD Secondary Mathematics Pathway graphic</a></li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">适合手机、电脑和打印使用。建议学生把“今日练习”和错题本结合起来，每天只推进一点点。</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
